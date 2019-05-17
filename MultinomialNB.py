@@ -1,56 +1,10 @@
-import re
-import matplotlib
-import numpy as np
-import matplotlib.pyplot as plt
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics import accuracy_score
 from sklearn.multiclass import OneVsRestClassifier
-from sklearn.svm import LinearSVC
-from sklearn.linear_model import LogisticRegression
 from sklearn.pipeline import Pipeline
-import seaborn as sns
-
-def score(test, pre):
-    test_pre = zip(test,pre)
-    count_true_positive = 0
-    count_false_positive = 0
-    
-    
-    for x,y in test_pre:
-        if (x == 0 and y == 1):
-            count_false_positive += 1
-        
-        elif (x == 1 and y == 1): 
-            count_true_positive += 1
-            
-    if (count_true_positive + count_false_positive) == 0:
-        return 0
-    return count_true_positive/ (count_true_positive + count_false_positive)
-
-
-def score2(test, pre):
-    test_pre = zip(test,pre)
-    count_true_positive = 0
-    count_false_positive = 0
-    count_false_negative = 0
-    
-    
-    for x,y in test_pre:
-        if (x == 0 and y == 1):
-            count_false_positive += 1
-        
-        elif (x == 1 and y == 1): 
-            count_true_positive += 1
-        elif (x == 1 and y == 0):
-            count_false_negative += 1
-            
-    if (count_true_positive + count_false_positive + count_false_negative) == 0:
-        return 0
-    return count_true_positive/ (count_true_positive + count_false_positive + count_false_negative)
-
-    
+from score import *
     
 data = pd.read_csv('cleaned_data.csv')
 

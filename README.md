@@ -6,7 +6,7 @@ This script scrapies eksisozluk.com and retrieve title and title categories, the
 If the connection breaks, you can rerun this script later. It will not insert same records again, but can walk on same titles. You should wait for new records.
 
 ## 2-from_mongo_converting_csv.py
-With this script you can make a csv file using records in mongodb you've inserted before using scrapingdata.py
+With this script you can make a csv file using records in mongodb you've inserted before.
 Records will be arranged as one hot encoding in this csv file. Cleaned data is saved into the cleaned_data.csv
 
 ## 3-cleaningdata.py

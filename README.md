@@ -7,10 +7,10 @@ If the connection breaks, you can rerun this script later. It will not insert sa
 
 ## 2-from_mongo_converting_csv.py
 With this script you can make a csv file using records in mongodb you've inserted before.
-Records will be arranged as one hot encoding in this csv file. Cleaned data is saved into the cleaned_data.csv
+Records will be arranged as one hot encoding in this csv file.
 
 ## 3-cleaningdata.py
-Some special characters are removed from titles in this script.
+Some special characters are removed from titles in this script. Cleaned data is saved into the cleaned_data.csv
 
 ## 4-knowing_data.py
 You can see title distribution per category and relation between title length and number of titles (ex: how many titles are there which has length 34).

@@ -1,10 +1,8 @@
 file1 = open("data.csv", "r")
 file2 = open("cleaned_data.csv", "w")
 
-
 file2.write(file1.readline())
 lines = file1.readlines()
-
 lines2 = []
 
 file1.close()
@@ -21,7 +19,6 @@ for line in lines:
     new_line.strip()
     new_line += (',' + line_second)
     lines2.append(new_line)
-
 
 for line in lines2:
     file2.write(line.strip() + '\n')

@@ -1,25 +1,16 @@
 from bs4 import BeautifulSoup
 import requests
-#Pull the urls from sitemap.xml
 
-
+# pull the urls from sitemap.xml
 page = requests.get(url = 'https://eksisozluk.com/sitemap.xml',  headers={"User-Agent":"Mozilla/5.0"}).text
-
-
 soup = BeautifulSoup(page)
-
 url_list = soup.find_all('loc')
-
-
 urls = []
 
 for item in url_list:
   urls.append(item.text)
 
-
-#put the data to the mongodb
-
-
+# put the data to the mongodb
 from pymongo import MongoClient
 
 client = MongoClient('localhost',27017)
@@ -30,7 +21,7 @@ def insert(data):
   if(not col.find({'title' : data['title']}).count()):
     col.insert_one(data)
 
-#Find categories of urls
+# find categories of urls
 count = 1
 for URL in urls:
 
@@ -50,6 +41,4 @@ for URL in urls:
     count += 1
     print("total record in mongo: ", col.count())
   
-
-
 client.close()

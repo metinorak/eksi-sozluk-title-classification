@@ -3,13 +3,9 @@ client = MongoClient('localhost',27017)
 db = client.eksidm
 col = db.titleandcategories
 
-
 all_data = col.find()
 
-
-
 file = open('data.csv', 'w')
-
 
 categories = ['spor',
               'ilişkiler',
@@ -46,8 +42,6 @@ line = line.strip(',')
 
 file.write(line + '\n')
 
-
-
 for item in all_data:
 
   line_to_add = ""
@@ -65,4 +59,3 @@ for item in all_data:
 
 client.close()
 file.close()
-
